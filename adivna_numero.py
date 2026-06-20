@@ -1,29 +1,64 @@
+# Proyecto: Adivina el Número
+# Autor: Sarahi Paredes
+# Lógica de Programación
+
 print("================================")
-print("A D I V I N A   E L   N Ú M E R O")
+print(" A D I V I N A   E L   N Ú M E R O ")
 print("================================")
 
-print("Piensa un número entre 1 y 100")
+# Variable para controlar si el usuario desea volver a jugar
+jugar = "si"
 
-minimo = 1
-maximo = 100
+while jugar == "si":
 
-while True:
+    # Inicialización de variables
+    minimo = 1
+    maximo = 100
+    intentos = 0
 
-    intento = (minimo + maximo) // 2
+    print("\nPiensa un número entre 1 y 100")
 
-    print(f"\n¿Tu número es {intento}?")
+    while True:
 
-    respuesta = input("Escriba mayor, menor o correcto: ").lower()
+        # Contador de intentos
+        intentos += 1
 
-    if respuesta == "correcto":
-        print("¡Número encontrado!")
-        break
+        # Cálculo del número propuesto
+        intento = (minimo + maximo) // 2
 
-    elif respuesta == "mayor":
-        minimo = intento + 1
+        print(f"\n¿Tu número es {intento}?")
 
-    elif respuesta == "menor":
-        maximo = intento - 1
+        respuesta = input(
+            "Escriba mayor, menor o correcto: "
+        ).lower()
 
-    else:
-        print("Respuesta no válida")
+        # Evaluación de la respuesta
+        if respuesta == "correcto":
+
+            print(
+                f"\n¡Número encontrado en {intentos} intentos!"
+            )
+
+            break
+
+        elif respuesta == "mayor":
+
+            minimo = intento + 1
+
+        elif respuesta == "menor":
+
+            maximo = intento - 1
+
+        else:
+
+            print(
+                "\nRespuesta inválida. Use mayor, menor o correcto."
+            )
+
+    # Preguntar si desea jugar nuevamente
+    jugar = input(
+        "\n¿Desea jugar nuevamente? (si/no): "
+    ).lower()
+
+print("\nGracias por utilizar el programa.")
+
